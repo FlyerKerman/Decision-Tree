@@ -118,7 +118,7 @@ def createTree(dataSet,labelMat,fatherDepth, leafType=regLeaf):
 	lSet, rSet,what,ever,label0,label1 = binSplitDataSet(np.mat(dataSet),labelMat,feat, val)
 	retTree['left'] = createTree(lSet,label0,currentDepth, regLeaf)
 	retTree['right'] = createTree(rSet,label1,currentDepth, regLeaf)
-	if(retTree['left']==retTree['right']):
+	if(retTree['left']==retTree['right']):#若两分支剪枝后得到的分类结果一样，则合并这两个分支
 		return retTree['left']
 	return retTree  
 if __name__ == '__main__':
